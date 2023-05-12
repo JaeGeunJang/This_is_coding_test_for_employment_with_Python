@@ -22,29 +22,32 @@ def virus(maping, y, x) :
                 virus(maping, newy, newx)
         
 max_num = 0
-
+result = []
+original = []
 for i in wall_where :
+    count = 0
+    new_map = deepcopy(mini_map)
     for k in i :
-        new_map = deepcopy(mini_map)
-        
         if new_map[k//M][k%M] == 0 :
             new_map[k//M][k%M] = 1
+            count += 1
+    if count != 3 :
+        count = 0
+        continue
 
     for n in range (N) :
         for m in range (M) :
             if new_map[n][m] == 2 :
                 virus(new_map, n, m)
-    # print(new_map)
+
     tmp = 0
     for n in range (N) :
         for m in range(M) :
             if new_map[n][m] == 0 :
                 tmp += 1
-    
-    for aaa in new_map :
-        print(aaa)
-    print()
+
     if max_num < tmp :
         max_num = tmp
+        result = new_map
         
 print(max_num)
