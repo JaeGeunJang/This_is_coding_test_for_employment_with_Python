@@ -1,5 +1,6 @@
 # first : Fail
 # Site : https://www.acmicpc.net/problem/14502
+# second : 55min... 
 
 from itertools import permutations
 from copy import deepcopy
